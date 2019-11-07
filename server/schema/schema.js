@@ -1,7 +1,7 @@
 // define types, relationships between types
 const graphql = require("graphql");
 const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
-const_ = require("lodash");
+const _ = require("lodash");
 
 // dummyData
 var books = [
