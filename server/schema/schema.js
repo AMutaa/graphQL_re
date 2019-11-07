@@ -1,7 +1,14 @@
 // define types, relationships between types
 const graphql = require("graphql");
-
 const { GraphQLObjectType, GraphQLString, GraphQLSchema } = graphql;
+const_ = require("lodash");
+
+// dummyData
+var books = [
+  { name: "Rifle Fight", genre: "Thriller", id: "1" },
+  { name: "Empire", genre: "Sci-FI", id: "2" },
+  { name: "Fight Night", genre: "Fantasy", id: "3" }
+];
 
 // object types
 //book
@@ -23,6 +30,7 @@ const RootQuery = new GraphQLObjectType({
       args: { id: { type: GraphQLString } },
       resolve(parent, args) {
         // code to get data from db/other source
+        return _.find(books, { id: args.id });
       }
     }
   }
