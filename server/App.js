@@ -5,19 +5,18 @@ const graphqlHTTP = require("express-graphql");
 const schema = require("./schema/schema");
 // interact with mongoDb database
 const mongoose = require("mongoose");
-// mongoose.connect(
-//   "mongodb+srv://amutaa:4878wert@cluster0-0972q.mongodb.net/test?retryWrites=true&w=majority"
-// );
-
+const cors = require("cors");
 mongoose
   .connect(
     "mongodb+srv://amutaa:4878wert@cluster0-0972q.mongodb.net/test?retryWrites=true&w=majority"
   )
   .then(() => console.log("Connected to database"))
   .catch(err => console.log(err));
-
 // app init
 const app = express();
+
+// allow  cross-origin requests
+app.use(cors());
 
 // endpoint
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true }));
