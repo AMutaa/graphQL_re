@@ -1,30 +1,39 @@
 import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { getBookQuery } from "../Queries/queries";
+import styled from "styled-components";
+import { Books } from "./BookList";
 
 class BookDetails extends Component {
   displayBookDetails() {
     const { book } = this.props.data;
     if (book) {
       return (
-        <div>
+        <BookDetail>
           <h2>{book.name}</h2>
-          <p>{book.genre}</p>
-          <p>{book.author.name}</p>
+          <p>
+            <span>Genre:</span>
+            {book.genre}
+          </p>
+
+          <p>
+            <span>By:</span>
+            {book.author.name}
+          </p>
           <p>All books by this author</p>
-          <ul>
+          <Books>
             {book.author.books.map(item => (
               <li key={item.id}>{item.name}</li>
             ))}
-          </ul>
-        </div>
+          </Books>
+        </BookDetail>
       );
     } else {
-      return <div>No book selected</div>;
+      return <BookDetail>No book selected</BookDetail>;
     }
   }
   render() {
-    return <div id="book-details">{this.displayBookDetails()}</div>;
+    return <MainWrapper>{this.displayBookDetails()}</MainWrapper>;
   }
 }
 
@@ -38,3 +47,6 @@ export default graphql(getBookQuery, {
     };
   }
 })(BookDetails);
+
+const MainWrapper = styled.div``;
+const BookDetail = styled.div``;

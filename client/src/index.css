@@ -1,21 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Roboto", sans-serif;
   background: #eee;
   padding: 0.5em;
   text-align: center;
 }
 
-#main {
-  margin: 0 auto;
-}
-#title {
-  margin: 3em auto;
-}
-
-ul {
-  padding: 0;
-}
-li {
-  list-style-type: none;
+.field {
+  display: flex;
+  flex-direction: column;
 }

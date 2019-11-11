@@ -3,6 +3,7 @@ import BookList from "./Components/BookList";
 import AddBook from "./Components/AddBook";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import styled from "styled-components";
 
 //apollo client setup
 const client = new ApolloClient({
@@ -11,15 +12,23 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div id="main">
-        <div id="title">
-          <h2>The Reading Collection</h2>
-        </div>
+      <MainWrapper>
+        <Navbar>
+          <h1>THE READING COLLECTION</h1>
+        </Navbar>
         <BookList />
-        <AddBook />
-      </div>
+      </MainWrapper>
     </ApolloProvider>
   );
 }
 
 export default App;
+
+const MainWrapper = styled.div`
+  margin: 0;
+  width: 70vw;
+`;
+
+const Navbar = styled.div`
+  height: 30%;
+`;
