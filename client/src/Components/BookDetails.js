@@ -49,4 +49,6 @@ export default graphql(getBookQuery, {
 })(BookDetails);
 
 const MainWrapper = styled.div``;
-const BookDetail = styled.div``;
+const BookDetail = styled.div`
+  max-height: 40vh;
+`;

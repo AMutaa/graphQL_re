@@ -34,15 +34,9 @@ class BookList extends Component {
   render() {
     return (
       <MainWrapper>
-        <ListWrap>
-          <div>
-            <Books>{this.displayBooks()}</Books>
-          </div>
-          <div>
-            <AddBook />
-          </div>
-        </ListWrap>
+        <Books>{this.displayBooks()}</Books>
         <BookDetails bookId={this.state.selected} />
+        <AddBook />
       </MainWrapper>
     );
   }
@@ -51,28 +45,15 @@ class BookList extends Component {
 export default graphql(getBooksQuery)(BookList);
 
 const MainWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  height: 70%;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 2em;
+  min-height: 70%;
 `;
 
-const ListWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-height: 50vh;
-`;
+export const Books = styled.div``;
 
-export const Books = styled.ul`
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-itemns: center;
-`;
-
-const Book = styled.li`
+const Book = styled.div`
   list-style-type: none;
   margin: 0.4em;
   border: 1px solid red;

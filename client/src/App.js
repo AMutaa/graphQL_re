@@ -25,10 +25,13 @@ function App() {
 export default App;
 
 const MainWrapper = styled.div`
-  margin: 0;
-  width: 70vw;
+  width: 50vw;
+  background: #f2f2f2;
+  border-radius: 3px;
+  height: 96vh;
+  margin: 0 auto;
 `;
 
 const Navbar = styled.div`
-  height: 30%;
+  min-height: 30%;
 `;

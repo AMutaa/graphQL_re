@@ -5,9 +5,11 @@
 body {
   font-size: 15px;
   font-family: "Roboto", sans-serif;
-  background: #eee;
-  padding: 0.5em;
+  color: black;
+  background: #d3d3d3;
   text-align: center;
+  max-height: 100%;
+  overflow-y: hidden;
 }
 
 .field {
