@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { graphql } from "react-apollo";
 import { getBookQuery } from "../Queries/queries";
 import styled from "styled-components";
-import { Books } from "./BookList";
 
 class BookDetails extends Component {
   displayBookDetails() {
@@ -10,22 +9,35 @@ class BookDetails extends Component {
     if (book) {
       return (
         <BookDetail>
-          <h2>{book.name}</h2>
+          <h4>{book.name}</h4>
           <p>
-            <span>Genre:</span>
-            {book.genre}
+            <span>By : </span>
+            <span
+              style={{
+                fontStyle: "italic",
+                fontSize: "1.1em",
+                textDecoration: "underline",
+                color: "#6772e4"
+              }}
+            >
+              {book.author.name}
+            </span>
           </p>
-
-          <p>
-            <span>By:</span>
-            {book.author.name}
+          <p style={{ fontSize: "0.8em" }}>
+            <span>Genre: </span>
+            <span>{book.genre}</span>
           </p>
           <p>All books by this author</p>
-          <Books>
+          <ul>
             {book.author.books.map(item => (
-              <li key={item.id}>{item.name}</li>
+              <li
+                style={{ listStyleType: "circle", fontSize: "0.9em" }}
+                key={item.id}
+              >
+                {item.name}
+              </li>
             ))}
-          </Books>
+          </ul>
         </BookDetail>
       );
     } else {
@@ -48,7 +60,14 @@ export default graphql(getBookQuery, {
   }
 })(BookDetails);
 
-const MainWrapper = styled.div``;
+const MainWrapper = styled.div`
+  grid-row: 1/-1;
+  border-left: 5px solid #dae6f1;
+  border-color: linear-gradient(red, blue);
+`;
 const BookDetail = styled.div`
   max-height: 40vh;
+  text-align: left;
+  padding: 2.5em 0.4em;
+  margin-bottom: 0.4em;
 `;

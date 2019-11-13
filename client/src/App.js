@@ -1,6 +1,5 @@
 import React from "react";
 import BookList from "./Components/BookList";
-import AddBook from "./Components/AddBook";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import styled from "styled-components";
@@ -26,12 +25,14 @@ export default App;
 
 const MainWrapper = styled.div`
   width: 50vw;
-  background: #f2f2f2;
+  background: #f6f9fc;
   border-radius: 3px;
   height: 96vh;
   margin: 0 auto;
 `;
 
 const Navbar = styled.div`
-  min-height: 30%;
+  min-height: 10%;
+  display: flex;
+  background: #dae6f1;
 `;

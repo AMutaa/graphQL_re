@@ -55,7 +55,9 @@ class AddBook extends Component {
       control: provided => ({
         ...provided,
         width: "250px",
-        margin: "0.5em 0"
+        margin: "0.5em 0",
+        border: "none",
+        outline: "none"
       })
     };
 
@@ -114,23 +116,27 @@ export default compose(
 
 const Card = styled.div`
   text-align: left;
-  width: 350px;
+  width: 80%;
   display: flex;
   flex-direction: column;
-  border: 1px solid gray;
+  background: #dae6f1;
   padding: 0.5em;
   border-radius: 3px;
-  height: 100%;
+  height: 95%;
+  margin: auto 1em;
+  box-shadow: 0 10px 20px rgba(60, 60, 200, 0.1);
+  background: linear-gradient(to right, #dae6f1, #f6f9fc);
 `;
 
 const Input = styled.input`
   height: 38px;
+  color: #808080;
   width: 250px;
   margin: 0.5em 0;
-  color: black;
   padding-left: 0.5em;
   outline: none;
-  font-size: 1rem;
+  font-size: 1em;
+  font-weight: 300;
   border: none;
   border-radius: 4px;
   background: dark-grey;
@@ -140,6 +146,7 @@ const Button = styled.button`
   width: 38px;
   height: 38px;
   border-radius: 100px;
+  border: none;
   font-size: 1.1em;
   color: white;
   display: flex;
@@ -147,5 +154,5 @@ const Button = styled.button`
   align-items: center;
   text-align: center;
   outline: none;
-  background: green;
+  background: #65e76b;
 `;
