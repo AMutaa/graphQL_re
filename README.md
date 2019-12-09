@@ -1,6 +1,6 @@
 # graphQL_re
 
-# Setup instructions
+## Setup instructions
 
 ## Server
 1. cd server
